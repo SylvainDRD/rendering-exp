@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.24)
 project(rendering-exp VERSION 0.1.0 DESCRIPTION "Experimenting with rendering stuff")
 
-set(source_files src/core/main.cpp src/renderer/vulkan/renderer.cpp)
+set(source_files src/core/main.cpp 
+                 src/renderer/vulkan/renderer.cpp
+                 src/core/window/window.cpp)
 
 set(binary rendering-exp)
 
@@ -16,6 +18,7 @@ target_include_directories(${binary} PRIVATE src
                                              thirdparty/vk-bootstrap/src
                                              thirdparty/glfw/include)
 target_link_libraries(${binary} PRIVATE ${Vulkan_LIBRARIES} 
-                                        vk-bootstrap::vk-bootstrap)
+                                        vk-bootstrap::vk-bootstrap
+                                        glfw)
 
 target_compile_features(${binary} PRIVATE cxx_std_20) 

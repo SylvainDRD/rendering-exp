@@ -26,3 +26,13 @@
     NO_MV(Type)
 
 #define ABORT(msg) LOG_ERROR(msg); std::abort();
+
+#ifdef _MSC_VER
+#ifdef DLL_EXPORT
+#define DLLAPI __declspec(dllexport)
+#else 
+#define DLLAPI __declspec(dllimport)
+#endif
+#else 
+#define DLLAPI
+#endif
