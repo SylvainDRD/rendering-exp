@@ -4,10 +4,12 @@ GLFWwindow *Window::_window;
 
 void Window::Init()
 {
-    if (glfwInit() != GLFW_TRUE)
+    if (!glfwInit())
     {
         ABORT("GLFW init failed");
     }
+
+    glfwSwapInterval(1);
 
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
@@ -31,9 +33,28 @@ void Window::Update()
     glfwPollEvents();
 }
 
+void Window::SwapBuffers()
+{
+    glfwSwapBuffers(_window);
+}
+
 bool Window::IsClosing()
 {
     return glfwWindowShouldClose(_window) == GLFW_TRUE;
+}
+
+uint32_t Window::Width()
+{
+    int width, height;
+    glfwGetWindowSize(_window, &width, &height);
+    return width;
+}
+
+uint32_t Window::Height()
+{
+    int width, height;
+    glfwGetWindowSize(_window, &width, &height);
+    return height;
 }
 
 std::vector<const char *> Window::GetRequiredVulkanExtensions()

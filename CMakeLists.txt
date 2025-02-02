@@ -3,6 +3,8 @@ project(rendering-exp VERSION 0.1.0 DESCRIPTION "Experimenting with rendering st
 
 set(source_files src/core/main.cpp 
                  src/renderer/vulkan/renderer.cpp
+                 src/renderer/vulkan/texture/texture.cpp
+                 src/renderer/vulkan/texture/texture_view.cpp
                  src/core/window/window.cpp)
 
 set(binary rendering-exp)

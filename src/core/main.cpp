@@ -10,9 +10,10 @@ int main(int argc, char **argv) {
     Renderer::Init();
 
     while(!Window::IsClosing()) {
-        Window::Update();
-
         // TODO: game loop :)
+
+        Window::SwapBuffers();
+        Window::Update();
     }
 
     // Cleanup

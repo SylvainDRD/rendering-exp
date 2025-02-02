@@ -1,3 +1,4 @@
+#pragma once
 #include <core/utils.h>
 #include <vulkan/vulkan.h>
 #define GLFW_INCLUDE_NONE
@@ -15,7 +16,13 @@ public:
 
     static void Update();
 
+    static void SwapBuffers();
+
     static bool IsClosing();
+
+    static uint32_t Width();
+
+    static uint32_t Height();
 
     static std::vector<const char *> GetRequiredVulkanExtensions();
 
