@@ -13,9 +13,9 @@ public:
 
     TextureView(VkImageView view);
 
-    TextureView(TextureView&& view);
+    TextureView(TextureView&& view) noexcept;
 
-    TextureView& operator=(TextureView&& view);
+    TextureView& operator=(TextureView&& view) noexcept;
 
 private:
     VkImageView _view;

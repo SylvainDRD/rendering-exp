@@ -1,22 +1,25 @@
 #pragma once
-
 #include <core/utils.h>
 #include <vulkan/vulkan.h>
 
 class Texture {
-    NO_CP(Texture)
+	NO_CP(Texture)
 
 public:
-    Texture() = delete;
+	Texture() = delete;
 
-    ~Texture();
+	~Texture();
 
-    Texture(VkImage image);
+	Texture(VkImage image);
 
-    Texture(Texture&& texture);
+	Texture(Texture&& texture) noexcept;
 
-    Texture& operator=(Texture&& texture);
+	Texture& operator=(Texture&& texture) noexcept;
+
+	void ClearNoDestroy();
+
+	void TransitionImageLayout(CommandBuffer commandBuffer, VkImageLayout currentLayout, VkImageLayout newLayout);
 
 private:
-    VkImage _image;
+	VkImage _image;
 };

@@ -5,7 +5,7 @@ set(source_files src/core/main.cpp
                  src/renderer/vulkan/renderer.cpp
                  src/renderer/vulkan/texture/texture.cpp
                  src/renderer/vulkan/texture/texture_view.cpp
-                 src/core/window/window.cpp)
+                 src/core/window/window.cpp "src/renderer/vulkan/command/command_buffer.cpp" "src/renderer/vulkan/command/command_pool.cpp" "src/renderer/vulkan/queue/queue.h" "src/renderer/vulkan/queue/queue.cpp")
 
 set(binary rendering-exp)
 
